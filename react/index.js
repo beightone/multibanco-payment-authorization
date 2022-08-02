@@ -1,6 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import styles from './index.css'
 
+const formatter = new Intl.NumberFormat('pt-PT', {
+  style: 'currency',
+  currency: 'EUR',
+
+  // These options are needed to round to whole numbers if that's what you want.
+  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+})
 class ExampleTransactionAuthApp extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +33,7 @@ class ExampleTransactionAuthApp extends Component {
     $(window).trigger('removePaymentLoading.vtex')
   }
 
-  respondTransaction = status => {
+  respondTransaction = (status) => {
     $(window).trigger('transactionValidation.vtex', [status])
   }
 
@@ -40,7 +48,7 @@ class ExampleTransactionAuthApp extends Component {
     })
   }
 
-  onVerify = e => {
+  onVerify = (e) => {
     const parsedPayload = JSON.parse(this.props.appPayload)
     this.setState({ loading: true })
 
@@ -87,17 +95,27 @@ class ExampleTransactionAuthApp extends Component {
   render() {
     const { scriptLoaded, loading } = this.state
 
+    console.log(this.props.appPayload)
+
+    const { value, reference } = JSON.parse(this.props.appPayload)
+
+    console.log(value, reference)
+
     return (
       <div className={styles.wrapper}>
         {scriptLoaded && !loading ? (
           <Fragment>
-            <div className="g-recaptcha" ref={this.divContainer}></div>
-            <button
-              id="payment-app-confirm"
-              className={styles.buttonSuccess}
-              onClick={this.confirmTransation}>
-              Confirmar
-            </button>
+            <img
+              className={styles.logo}
+              src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/multibanco.svg"></img>
+            <div>
+              <h5 className={styles.title}>Reference</h5>
+              <p className={styles.desc}>{reference}</p>
+            </div>
+            <div>
+              <h5 className={styles.title}>value</h5>
+              <p className={styles.desc}>{formatter.format(value / 100)}</p>
+            </div>
           </Fragment>
         ) : (
           <h2>Carregando...</h2>
@@ -107,8 +125,8 @@ class ExampleTransactionAuthApp extends Component {
           <button
             id="payment-app-cancel"
             className={styles.buttonDanger}
-            onClick={this.cancelTransaction}>
-            Cancelar
+            onClick={this.confirmTransation}>
+            Fechar
           </button>
         )}
       </div>

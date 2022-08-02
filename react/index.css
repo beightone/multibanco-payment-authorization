@@ -16,11 +16,6 @@
   z-index: 999;
 }
 
-.buttonDanger {
-  color: #fff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
-}
 
 .buttonSuccess {
   color: #fff;
@@ -31,4 +26,62 @@
 .appPayload {
   width: 100%;
   word-break: break-word;
+}
+
+
+.title{
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.desc{
+  font-size: 20px;
+  color: #99999a;
+  font-weight: 300;
+}
+
+
+
+/* CSS */
+.buttonDanger {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  margin-top: 5rem
+}
+
+.buttonDanger:hover,
+.buttonDanger:focus {
+  background-color: #F082AC;
+}
+
+.logo{
+  width: 15rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
 }
