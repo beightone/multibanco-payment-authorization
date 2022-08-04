@@ -95,11 +95,15 @@ class ExampleTransactionAuthApp extends Component {
   render() {
     const { scriptLoaded, loading } = this.state
 
-    console.log(this.props.appPayload)
+    console.log("'Hello world ", scriptLoaded)
 
-    const { value, reference } = JSON.parse(this.props.appPayload)
+    if (scriptLoaded) {
+      console.log(this.props.appPayload)
 
-    console.log(value, reference)
+      const { value, reference } = JSON.parse(this.props.appPayload)
+
+      console.log(value, reference)
+    }
 
     return (
       <div className={styles.wrapper}>
