@@ -1,7 +1,7 @@
 {
   "name": "multibanco-payment-auth-app",
   "vendor": "adyen",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "title": "Multibanco Authentication App",
   "description": "Multibanco Payment Authentication App",
   "defaultLocale": "en",
@@ -16,5 +16,14 @@
   "scripts": {
     "postreleasy": "vtex publish"
   },
-  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
+  "billingOptions": {
+    "termsURL": "https://compliance.vtex.com/gdpr/policies/vtex-privacy-policy",
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "free": true,
+    "type": "free",
+    "availableCountries": ["*"]
+  }
 }
