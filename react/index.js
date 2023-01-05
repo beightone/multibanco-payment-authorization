@@ -95,11 +95,7 @@ class MultibancoTransactionAuthApp extends Component {
   render() {
     const { scriptLoaded, loading } = this.state
 
-    console.log("'Hello world ", scriptLoaded)
-
-    console.log(this.props.appPayload)
-
-    const { value, reference } = JSON.parse(this.props.appPayload)
+    const { value, reference, entity } = JSON.parse(this.props.appPayload)
 
     console.log(value, reference)
 
@@ -110,6 +106,10 @@ class MultibancoTransactionAuthApp extends Component {
             <img
               className={styles.logo}
               src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/multibanco.svg"></img>
+            <div>
+              <h5 className={styles.title}>Entidade</h5>
+              <p className={styles.desc}>{entity || ''}</p>
+            </div>
             <div>
               <h5 className={styles.title}>Reference</h5>
               <p className={styles.desc}>{reference || ''}</p>
