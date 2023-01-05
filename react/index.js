@@ -106,15 +106,15 @@ class MultibancoTransactionAuthApp extends Component {
             <img
               className={styles.logo}
               src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/multibanco.svg"></img>
-            <div>
+            <div style="text-align: center;margin-bottom: 16px;">
               <h5 className={styles.title}>Entidade</h5>
               <p className={styles.desc}>{entity || ''}</p>
             </div>
-            <div>
+            <div style="text-align: center;margin-bottom: 16px;">
               <h5 className={styles.title}>Reference</h5>
               <p className={styles.desc}>{reference || ''}</p>
             </div>
-            <div>
+            <div style="text-align: center;margin-bottom: 16px;">
               <h5 className={styles.title}>value</h5>
               <p className={styles.desc}>{formatter.format(value / 100)}</p>
             </div>
