@@ -1,7 +1,7 @@
 {
   "name": "multibanco-payment-auth-app",
   "vendor": "adyen",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "title": "Multibanco Authentication App",
   "description": "Multibanco Payment Authentication App",
   "defaultLocale": "en",
